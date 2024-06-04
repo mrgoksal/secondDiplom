@@ -1,18 +1,21 @@
 
 from pathlib import Path
-
-# from tkinter import *
-# Explicit imports to satisfy Flake8
+import subprocess
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Роман\Desktop\secondDiplom\build\assets\frame3")
+REGISTRATION_PATH = Path(__file__).resolve().parent
+ASSETS_PATH = REGISTRATION_PATH.parent / 'Main' / 'frameS3'
 
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def close():
+    window.destroy()
+def back():
+    window.destroy()
+    subprocess.Popen(["Python", "StudentMain.py"])
 
 window = Tk()
 
@@ -54,7 +57,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=close,
     relief="flat"
 )
 button_1.place(
@@ -70,7 +73,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=back,
     relief="flat"
 )
 button_2.place(

@@ -28,7 +28,7 @@ window = Tk()
 
 window.geometry("1600x900")
 window.configure(bg = "#FFFFFF")
-
+window.lift()
 
 canvas = Canvas(
     window,
@@ -70,6 +70,15 @@ canvas.create_text(
     100.0,
     anchor="nw",
     text="Authorization",
+    fill="#000000",
+    font=("IrishGrover Regular", 65 * -1)
+)
+
+canvas.create_text(
+    683.0,
+    162.0,
+    anchor="nw",
+    text="Teacher",
     fill="#000000",
     font=("IrishGrover Regular", 65 * -1)
 )

@@ -1,4 +1,5 @@
-
+import os
+import subprocess
 from pathlib import Path
 
 # from tkinter import *
@@ -6,13 +7,29 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Роман\Desktop\secondDiplom\build\assets\frame0")
+REGISTRATION_PATH = Path(__file__).resolve().parent
+ASSETS_PATH = REGISTRATION_PATH.parent / 'Main' / 'frameS0'
 
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def close():
+    window.destroy()
+def all_cours():
+    window.destroy()
+    subprocess.Popen(["Python","AllCoursStudent.py"])
+def all_teachers():
+    window.destroy()
+    subprocess.Popen(["Python","AllTeachers.py"])
+def Open_back_form():
+    window.destroy()
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    file_path = os.path.join(current_dir, "..", "Registration", "First.py")
+    subprocess.Popen(["python", file_path])
+def Complite():
+    window.destroy()
+    subprocess.Popen(["Python","CompliteTest.py"])
 
 window = Tk()
 
@@ -45,7 +62,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=all_cours,
     relief="flat"
 )
 button_1.place(
@@ -61,7 +78,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=all_teachers,
     relief="flat"
 )
 button_2.place(
@@ -86,7 +103,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=close,
     relief="flat"
 )
 button_3.place(
@@ -102,7 +119,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=Open_back_form,
     relief="flat"
 )
 button_4.place(
@@ -118,7 +135,7 @@ button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
+    command=Complite,
     relief="flat"
 )
 button_5.place(

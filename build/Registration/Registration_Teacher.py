@@ -23,7 +23,7 @@ window = Tk()
 
 window.geometry("1600x900")
 window.configure(bg = "#FFFFFF")
-
+window.lift()
 
 canvas = Canvas(
     window,

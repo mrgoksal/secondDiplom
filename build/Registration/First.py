@@ -1,9 +1,18 @@
+
 from pathlib import Path
 from tkinter import *
+from tkinter import messagebox
 import subprocess
+import sys
 
+# Добавляем путь к модулю db.py в sys.path
+sys.path.append(str(Path(__file__).resolve().parent.parent / 'bd'))
 
+# Импортируем функции из db.py
+from db import get_connection, execute_query
 
+# Импортируем функции из db.py
+from db import execute_query
 REGISTRATION_PATH = Path(__file__).resolve().parent
 ASSETS_PATH = REGISTRATION_PATH.parent / 'Main' / 'frame0'
 
@@ -26,7 +35,7 @@ window = Tk()
 
 window.geometry("1600x900")
 window.configure(bg = "#FFFFFF")
-
+window.lift()
 
 canvas = Canvas(
     window,
